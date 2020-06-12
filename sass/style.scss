@@ -1,0 +1,21 @@
+@import "font&colors", "components";
+
+
+// ----------------------------- Star --------------------------------// 
+* {
+    box-sizing: border-box;
+}
+
+
+// ----------------------------- Body --------------------------------// 
+body {
+    background-color: $body-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: $font-stack;
+}
+

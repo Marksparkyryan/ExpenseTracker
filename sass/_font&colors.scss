@@ -1,0 +1,41 @@
+
+// ---------------------------- Imports ------------------------------// 
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+// ---------------------------- Colours ------------------------------// 
+$body-background: #f7f7f7;
+$section-border: #bbb;
+$container-border: #dedede;
+$container-background: #fff;
+$money-plus: #3ecc71;
+$money-minus: #c0392b;
+$btn: #9c88ff;
+$white: #fff;
+$list-background: #fff;
+$history-item-color: #333;
+$delete-btn: #e74c3c;
+
+
+// ----------------------------- Font --------------------------------// 
+$font-stack: Lato, sans-serif;
+$money-size: 20px;
+$form-input-size: 16px;
+$btn-size: 16px;
+$delete-btn-size: 20px;
+
+h1 {
+   letter-spacing: 1px;
+   margin: 0; 
+}
+
+h3 {
+    border-bottom: 1px solid $section-border;
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+}
+
+h4 {
+    margin: 0;
+    text-transform: uppercase;
+}

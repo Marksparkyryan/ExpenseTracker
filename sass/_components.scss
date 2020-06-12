@@ -1,0 +1,144 @@
+
+$box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+// ---------------------------- Button ------------------------------// 
+.btn {
+    background-color: $btn;
+    box-shadow: $box-shadow;
+    color: $white;
+    font-size: $btn-size;
+    margin: 10px 0 10px;
+    padding: 10px;
+    width: 100%;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+// --------------------------- Container -----------------------------// 
+.container {
+    margin: 30px auto;
+    width: 350px;
+}
+
+
+// ------------------- Income & Expense Container --------------------// 
+.inc-exp-container {
+    background-color: $container-background;
+    box-shadow: $box-shadow;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+
+    div {
+        flex: 1;
+        text-align: center;
+
+        &:first-of-type {
+            border-right: 1px solid $container-border;
+        }
+    }
+
+    .money {
+        font-size: $money-size;
+        letter-spacing: 1px;
+        margin: 5px 0;
+
+        &.plus {
+            color: $money-plus;
+        }
+
+        &.minus {
+            color: $money-minus;
+        }
+    }
+
+}
+
+
+// ------------------------ Transaction List -------------------------// 
+.list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+
+    li {
+        cursor: pointer;
+        background-color: $list-background;
+        box-shadow: $box-shadow;
+        color: $history-item-color;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        padding: 10px;
+        margin: 10px 0;
+        height: 40px;
+
+        &.plus {
+            border-right: 5px solid $money-plus;
+        }
+
+        &.minus {
+            border-right: 5px solid $money-minus;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            background-color: $delete-btn;
+            border: 0;
+            color: $white;
+            font-size: $delete-btn-size;
+            padding: 2px 1px;
+            padding-left: 3px;
+            height: 40px;
+            width: 35px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            box-shadow: $box-shadow;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-100%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        &:hover {
+            .delete-btn {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+// ------------------------------ Form -------------------------------// 
+form {
+    display: inline-block;
+    margin: 10px 0;
+    width: 100%;
+
+    label {
+        display: inline-block;
+        margin: 10px 0;
+    }
+
+    input[type='text'],
+    input[type='number'] {
+        border: 1px solid $container-border;
+        border-radius: 2px;
+        display: block;
+        font-size: $form-input-size;
+        padding: 10px;
+        width: 100%;
+    }
+}
+
