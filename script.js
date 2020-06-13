@@ -8,6 +8,7 @@ const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 const message = document.getElementById('message');
 const notice = document.getElementById('noTransactions');
+const toggle = document.getElementById('toggle');
 
 
 const localStorageTransactions = JSON.parse(
@@ -36,6 +37,8 @@ function addTransaction(e) {
 
     if (text.value.trim() === '' || amount.value.trim() === '') {
         showMessage('Please add text and amount');
+    } else if (+amount.value.trim() === 0 ) {
+        showMessage("Amount can't be zero");
     } else {
         const transaction = {
             id: generateID(),
@@ -46,7 +49,7 @@ function addTransaction(e) {
     addTransactionDOM(transaction);
     updateValues();
     updateLocalStorage();
-
+    showMessage(`${transaction.text} added!`)
     text.value = '';
     amount.value = '';
     }
@@ -121,9 +124,34 @@ function updateLocalStorage() {
     localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
+// Income expense toggle 
+function toggleSign() {
+    if (toggle.classList.contains('minus')) {
+        toggle.classList.remove('minus');
+        toggle.classList.add('plus');
+        amount.value < 0 ? amount.value = +amount.value * -1 : +amount.value;
+    } else if (toggle.classList.contains('plus')) {
+        toggle.classList.remove('plus');
+        toggle.classList.add('minus');
+        amount.value > 0 ? amount.value = +amount.value * -1 : +amount.value;
+    }
+}
+
+// Watch amount value for sign changes and auto change toggle
+function watchToggle(e) {
+    console.log(amount.value)
+    if (amount.value < 0) {
+        toggle.classList.add('minus');
+        toggle.classList.remove('plus');
+    } else if (amount.value > -1) {
+        toggle.classList.add('plus');
+        toggle.classList.remove('minus');
+    }
+}
+
 // Init app
 function init() {
-    list.innerHTML = '';
+    list.innerHTML = ''
     transactions.forEach(addTransactionDOM);
     updateValues();
 }
@@ -132,3 +160,5 @@ init()
 
 // Event Listeners
 form.addEventListener('submit', addTransaction);
+amount.addEventListener('input', watchToggle);
+
